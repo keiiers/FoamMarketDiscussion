@@ -3,864 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>聚合物泡棉市場全面分析報告 | James Chang</title>
-    <meta name="description" content="深入分析全球聚合物泡棉市場的轉型變革、分類洞察、區域動態和未來趨勢">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- Tailwind CSS -->
+    <title>全球聚合物泡棉市場分析報告</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root {
-            --primary-blue: #1e40af;
-            --primary-blue-light: #3b82f6;
-            --primary-blue-lighter: #60a5fa;
-            --neutral-dark: #374151;
-            --neutral-medium: #6b7280;
-            --neutral-light: #9ca3af;
-            --accent-orange: #ea580c;
-            --accent-orange-light: #fb923c;
-            --bg-light: #f9fafb;
-            --bg-lighter: #f3f4f6;
+        body { font-family: 'Inter', sans-serif; }
+        .bento-grid { display: grid; gap: 1.5rem; }
+        .bento-item { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+        .bento-item:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+        .hero-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .company-card { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .company-card:hover { transform: scale(1.02); }
+        .data-viz { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .insight-card { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .trend-card { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .region-card { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        @media (min-width: 768px) {
+            .bento-grid { grid-template-columns: repeat(12, 1fr); }
+            .hero { grid-column: span 12; }
+            .main-content { grid-column: span 8; }
+            .sidebar { grid-column: span 4; }
+            .full-width { grid-column: span 12; }
+            .half-width { grid-column: span 6; }
+            .third-width { grid-column: span 4; }
         }
-        
-        body {
-            font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-        }
-        
-        .font-serif {
-            font-family: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', Georgia, serif;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 50%, var(--primary-blue-lighter) 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .btn-primary {
-            background: var(--primary-blue);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background: var(--primary-blue-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
-        }
-        
-        .section-divider {
-            background: linear-gradient(90deg, transparent 0%, var(--neutral-light) 50%, transparent 100%);
-            height: 1px;
-        }
-        
-        .number-highlight {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--accent-orange);
-            line-height: 1;
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .bento-item {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .bento-item.large {
-            grid-column: span 2;
-        }
-        
-        @media (max-width: 768px) {
-            .bento-item.large {
-                grid-column: span 1;
-            }
-            .number-highlight {
-                font-size: 2.5rem;
-            }
-        }
-        
-        .progress-bar {
-            height: 8px;
-            background: var(--bg-lighter);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-light));
-            border-radius: 4px;
-            transition: width 1s ease;
-        }
-        
-        .icon-circle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-        
-        @media print {
-            .no-print {
-                display: none !important;
-            }
-            body {
-                font-size: 12px;
-            }
-            .hero-gradient {
-                background: var(--primary-blue) !important;
-            }
-        }
+        .print-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 1000; }
+        .company-link { color: #fbbf24; text-decoration: underline; transition: color 0.3s ease; }
+        .company-link:hover { color: #f59e0b; }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header with Print Button -->
-    <header class="bg-white shadow-sm sticky top-0 z-50 no-print">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="https://s2.loli.net/2025/06/28/yVLiSKzXvjAa3nf.png" alt="James Logo" class="w-10 h-10" loading="lazy">
-                <h1 class="text-xl font-bold text-gray-800">泡棉市場分析報告</h1>
-            </div>
-            <button onclick="window.print()" class="btn-primary px-6 py-2 rounded-lg flex items-center space-x-2">
-                <i class="fas fa-print"></i>
-                <span>列印報告</span>
-            </button>
-        </div>
-    </header>
-
+<body class="bg-gray-50 min-h-screen">
     <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
-                    <h1 class="font-serif text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                        聚合物泡棉市場
-                        <span class="text-yellow-300">全面分析</span>
-                    </h1>
-                    <p class="text-xl mb-8 text-blue-100 leading-relaxed">
-                        深入探討全球聚合物泡棉市場的轉型變革、技術創新與未來趨勢，
-                        為產業決策者提供專業洞察與策略建議。
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                            <i class="fas fa-chart-line mr-2"></i>
-                            市場分析
-                        </div>
-                        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                            <i class="fas fa-industry mr-2"></i>
-                            產業洞察
-                        </div>
-                        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                            <i class="fas fa-globe mr-2"></i>
-                            全球視野
-                        </div>
+    <div class="bento-grid max-w-7xl mx-auto p-6">
+        <div class="bento-item hero hero-gradient text-white">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-6">全球聚合物泡棉市場分析報告</h1>
+                <p class="text-xl opacity-90 mb-8">深度解析市場轉型、技術創新與未來趨勢</p>
+                <div class="flex justify-center space-x-8 text-center">
+                    <div>
+                        <div class="text-3xl font-bold">2024</div>
+                        <div class="text-sm opacity-80">分析年度</div>
                     </div>
-                </div>
-                <div class="fade-in">
-                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold mb-6">報告概覽</h3>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center">
-                                <span>市場覆蓋範圍</span>
-                                <span class="font-bold">全球</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>分析維度</span>
-                                <span class="font-bold">8個核心領域</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>重點企業</span>
-                                <span class="font-bold">25+家</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>應用領域</span>
-                                <span class="font-bold">7大產業</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 pt-6 border-t border-white/20">
-                            <p class="text-sm text-blue-100">
-                                <i class="fas fa-user mr-2"></i>
-                                報告作者：James Chang
-                            </p>
-                        </div>
+                    <div>
+                        <div class="text-3xl font-bold">25+</div>
+                        <div class="text-sm opacity-80">重點公司</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold">7</div>
+                        <div class="text-sm opacity-80">主要應用領域</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 py-16">
-        
-        <!-- Market Overview Section -->
-        <section class="mb-20 fade-in">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-4xl font-bold text-gray-800 mb-4">市場概況與轉型</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    聚合物泡棉市場正經歷由技術創新、可持續性要求和數位化進步推動的歷史性轉變
-                </p>
+        <!-- Market Overview -->
+        <div class="bento-item main-content">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-chart-line mr-3 text-blue-600"></i>市場概況與轉型變革</h2>
+            <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p>過去十年中，聚合物泡棉市場經歷了顯著的發展，由技術進步和對可持續、輕量化、耐用材料的日益增長需求所推動。市場已從利基領域茁壯成為一個生機勃勃、多維度的產業。</p>
+                <p>先進生產技術的採用，如精準成型和數位製程控制，已提升產品一致性並開拓了高度專業化的應用領域。製造商逐漸利用新聚合物改進技術，提高耐熱性、降低重量，並滿足現代應用對日益嚴格的品質標準的需求。</p>
+                <p>全球經濟趨勢和加劇的監管壓力帶來了一個轉型時期。對能源效率和減少碳足跡的明確重視，導致企業透過加入生物可降解元素和回收材料來重新規劃產品提供。</p>
             </div>
-            
-            <div class="bento-grid">
-                <div class="bento-item large card-hover">
-                    <div class="flex items-start space-x-6">
-                        <div class="icon-circle" style="background: var(--primary-blue);">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">三大轉型驅動力</h3>
-                            <div class="grid md:grid-cols-3 gap-6">
-                                <div class="text-center">
-                                    <div class="number-highlight">01</div>
-                                    <h4 class="font-bold text-lg mb-2">技術創新</h4>
-                                    <p class="text-gray-600 text-sm">精準成型、數位製程控制、新聚合物技術</p>
-                                </div>
-                                <div class="text-center">
-                                    <div class="number-highlight">02</div>
-                                    <h4 class="font-bold text-lg mb-2">可持續性要求</h4>
-                                    <p class="text-gray-600 text-sm">生物可降解材料、回收技術、減碳目標</p>
-                                </div>
-                                <div class="text-center">
-                                    <div class="number-highlight">03</div>
-                                    <h4 class="font-bold text-lg mb-2">數位化進步</h4>
-                                    <p class="text-gray-600 text-sm">數據驅動洞察、即時監控、品質控制</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bento-item card-hover">
-                    <div class="icon-circle mb-4" style="background: var(--accent-orange);">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">市場成長動能</h3>
-                    <p class="text-gray-600 mb-4">從利基市場轉變為多維度重要產業</p>
-                    <div class="progress-bar mb-2">
-                        <div class="progress-fill" style="width: 85%;"></div>
-                    </div>
-                    <p class="text-sm text-gray-500">技術成熟度：85%</p>
-                </div>
-                
-                <div class="bento-item card-hover">
-                    <div class="icon-circle mb-4" style="background: var(--primary-blue-light);">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">環保競爭優勢</h3>
-                    <p class="text-gray-600 mb-4">可持續性已成為關鍵競爭因素</p>
-                    <div class="progress-bar mb-2">
-                        <div class="progress-fill" style="width: 78%;"></div>
-                    </div>
-                    <p class="text-sm text-gray-500">環保採用率：78%</p>
-                </div>
-            </div>
-        </section>
+        </div>
 
-        <!-- Market Segmentation -->
-        <section class="mb-20 fade-in">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-4xl font-bold text-gray-800 mb-4">市場分類洞察</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    透過類型、密度和應用三個維度深入分析市場結構與機會
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- By Type -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
-                    <div class="icon-circle mb-6" style="background: var(--primary-blue);">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">依材料類型</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                            <span class="font-medium">聚氨酯 (PU)</span>
-                            <span class="text-orange-500 font-bold">35%</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                            <span class="font-medium">聚烯烴 (PO)</span>
-                            <span class="text-blue-500 font-bold">25%</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                            <span class="font-medium">聚苯乙烯 (PS)</span>
-                            <span class="text-green-500 font-bold">20%</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                            <span class="font-medium">PVC</span>
-                            <span class="text-purple-500 font-bold">12%</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="font-medium">其他</span>
-                            <span class="text-gray-500 font-bold">8%</span>
-                        </div>
-                    </div>
+        <!-- Key Statistics -->
+        <div class="bento-item sidebar data-viz text-white">
+            <h3 class="text-2xl font-bold mb-4"><i class="fas fa-chart-pie mr-2"></i>關鍵數據</h3>
+            <div class="space-y-4">
+                <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                    <div class="text-2xl font-bold">6種</div>
+                    <div class="text-sm opacity-90">主要聚合物類型</div>
                 </div>
-                
-                <!-- By Density -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
-                    <div class="icon-circle mb-6" style="background: var(--accent-orange);">
-                        <i class="fas fa-weight-hanging"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">依密度分類</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium">高密度</span>
-                                <span class="text-sm text-gray-500">強度、耐用</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 40%;"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium">中密度</span>
-                                <span class="text-sm text-gray-500">平衡選項</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 35%;"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium">低密度</span>
-                                <span class="text-sm text-gray-500">彈性、緩衝</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 25%;"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                    <div class="text-2xl font-bold">3種</div>
+                    <div class="text-sm opacity-90">密度分類</div>
                 </div>
-                
-                <!-- By Application -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
-                    <div class="icon-circle mb-6" style="background: var(--primary-blue-light);">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">主要應用領域</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-car text-blue-500"></i>
-                            <span class="font-medium">汽車產業</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-building text-green-500"></i>
-                            <span class="font-medium">建築營造</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-microchip text-purple-500"></i>
-                            <span class="font-medium">電子電機</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-shoe-prints text-orange-500"></i>
-                            <span class="font-medium">鞋類製造</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-bed text-indigo-500"></i>
-                            <span class="font-medium">家具床墊</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-box text-red-500"></i>
-                            <span class="font-medium">包裝運輸</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-running text-teal-500"></i>
-                            <span class="font-medium">運動休閒</span>
-                        </div>
-                    </div>
+                <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                    <div class="text-2xl font-bold">50+</div>
+                    <div class="text-sm opacity-90">國家與地區</div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Product Classification -->
+        <div class="bento-item full-width">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-layer-group mr-3 text-green-600"></i>產品分類與技術特性</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="insight-card text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">按類型分類</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• 三聚氰胺泡棉</li>
+                        <li>• 酚醛樹脂泡棉</li>
+                        <li>• 聚烯烴泡棉</li>
+                        <li>• 聚苯乙烯泡棉</li>
+                        <li>• 聚氨酯泡棉</li>
+                        <li>• PVC泡棉</li>
+                    </ul>
+                </div>
+                <div class="trend-card text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">按密度分類</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• 高密度泡棉 - 強度與耐用性</li>
+                        <li>• 中等密度泡棉 - 平衡性能</li>
+                        <li>• 低密度泡棉 - 彈性與緩衝</li>
+                    </ul>
+                </div>
+                <div class="region-card text-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">製造工藝</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• 壓模切割技術</li>
+                        <li>• 水射流切割</li>
+                        <li>• 熱成型工藝</li>
+                        <li>• 泡棉針織技術</li>
+                        <li>• 先進製造技術</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications -->
+        <div class="bento-item full-width">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-cogs mr-3 text-purple-600"></i>主要應用領域</h2>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="bg-blue-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-blue-800 mb-2"><i class="fas fa-car mr-2"></i>汽車工業</h4>
+                    <p class="text-sm text-blue-700">座椅、隔音、墊材、底漆塗層</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-green-800 mb-2"><i class="fas fa-building mr-2"></i>建築營造</h4>
+                    <p class="text-sm text-green-700">隔熱材料、屋頂材料、結構插件</p>
+                </div>
+                <div class="bg-purple-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-purple-800 mb-2"><i class="fas fa-microchip mr-2"></i>電子電機</h4>
+                    <p class="text-sm text-purple-700">電子隔熱、保護包裝</p>
+                </div>
+                <div class="bg-red-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-red-800 mb-2"><i class="fas fa-shoe-prints mr-2"></i>鞋類製造</h4>
+                    <p class="text-sm text-red-700">內底、中底墊材</p>
+                </div>
+                <div class="bg-yellow-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-yellow-800 mb-2"><i class="fas fa-couch mr-2"></i>家具床墊</h4>
+                    <p class="text-sm text-yellow-700">墊子、床墊、枕頭</p>
+                </div>
+                <div class="bg-indigo-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-indigo-800 mb-2"><i class="fas fa-box mr-2"></i>包裝工業</h4>
+                    <p class="text-sm text-indigo-700">隔熱包裝、保護包裝</p>
+                </div>
+                <div class="bg-pink-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-pink-800 mb-2"><i class="fas fa-running mr-2"></i>運動休閒</h4>
+                    <p class="text-sm text-pink-700">設備墊材、保護裝備</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-gray-800 mb-2"><i class="fas fa-stethoscope mr-2"></i>醫療應用</h4>
+                    <p class="text-sm text-gray-700">醫療器材、防護用品</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Regional Analysis -->
-        <section class="mb-20 fade-in">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-4xl font-bold text-gray-800 mb-4">關鍵區域動態</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    不同地區因經濟、法規和發展階段差異呈現獨特市場特徵
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 card-hover">
-                    <div class="icon-circle mb-6" style="background: var(--primary-blue);">
-                        <i class="fas fa-flag-usa"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">美洲市場</h3>
-                    <div class="space-y-3 text-gray-700">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>成熟的工業基礎</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>創新技術採用</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>能源效率重視</span>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-blue-200">
-                        <p class="text-sm text-gray-600">特色：穩固供應鏈與技術技能</p>
-                    </div>
+        <div class="bento-item half-width">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800"><i class="fas fa-globe mr-3 text-blue-600"></i>區域市場動態</h2>
+            <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h4 class="font-bold text-blue-800">美洲地區</h4>
+                    <p class="text-sm text-gray-600">成熟的工業架構，強調創新技術採用和可持續性發展</p>
                 </div>
-                
-                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 card-hover">
-                    <div class="icon-circle mb-6" style="background: var(--accent-orange);">
-                        <i class="fas fa-globe-europe"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">歐洲中東非洲</h3>
-                    <div class="space-y-3 text-gray-700">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>嚴格監管控制</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>環保生產流程</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>減碳足跡承諾</span>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-green-200">
-                        <p class="text-sm text-gray-600">特色：策略聯盟與創新計劃</p>
-                    </div>
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="font-bold text-green-800">歐洲、中東及非洲</h4>
+                    <p class="text-sm text-gray-600">嚴格監管控制，重視減少碳足跡和環保生產流程</p>
                 </div>
-                
-                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 card-hover">
-                    <div class="icon-circle mb-6" style="background: var(--primary-blue-light);">
-                        <i class="fas fa-globe-asia"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">亞太地區</h3>
-                    <div class="space-y-3 text-gray-700">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>快速工業化</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>大規模基礎建設</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span>中產階級壯大</span>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-purple-200">
-                        <p class="text-sm text-gray-600">特色：爆炸式增長潛力</p>
-                    </div>
+                <div class="border-l-4 border-red-500 pl-4">
+                    <h4 class="font-bold text-red-800">亞太地區</h4>
+                    <p class="text-sm text-gray-600">快速工業化和都市化，對綠色建築材料需求強勁</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Key Companies -->
-        <section class="mb-20 fade-in">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-4xl font-bold text-gray-800 mb-4">關鍵市場參與者</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    全球領先企業透過創新、品質和可持續性塑造市場格局
-                </p>
-            </div>
-            
-            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="text-center p-4 bg-blue-50 rounded-xl">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">BASF</div>
-                        <p class="text-sm text-gray-600">德國化工巨頭</p>
-                        <p class="text-xs text-gray-500 mt-1">聚氨酯領導者</p>
-                    </div>
-                    <div class="text-center p-4 bg-green-50 rounded-xl">
-                        <div class="text-3xl font-bold text-green-600 mb-2">Covestro</div>
-                        <p class="text-sm text-gray-600">高科技聚合物</p>
-                        <p class="text-xs text-gray-500 mt-1">聚碳酸酯專家</p>
-                    </div>
-                    <div class="text-center p-4 bg-purple-50 rounded-xl">
-                        <div class="text-3xl font-bold text-purple-600 mb-2">DuPont</div>
-                        <p class="text-sm text-gray-600">美國科技公司</p>
-                        <p class="text-xs text-gray-500 mt-1">技術材料領先</p>
-                    </div>
-                    <div class="text-center p-4 bg-orange-50 rounded-xl">
-                        <div class="text-3xl font-bold text-orange-600 mb-2">Arkema</div>
-                        <p class="text-sm text-gray-600">法國特種化學</p>
-                        <p class="text-xs text-gray-500 mt-1">先進材料專家</p>
-                    </div>
-                    <div class="text-center p-4 bg-red-50 rounded-xl">
-                        <div class="text-3xl font-bold text-red-600 mb-2">SABIC</div>
-                        <p class="text-sm text-gray-600">沙烏地化工</p>
-                        <p class="text-xs text-gray-500 mt-1">全球聚合物領導</p>
-                    </div>
-                    <div class="text-center p-4 bg-indigo-50 rounded-xl">
-                        <div class="text-3xl font-bold text-indigo-600 mb-2">JSP</div>
-                        <p class="text-sm text-gray-600">日本發泡專家</p>
-                        <p class="text-xs text-gray-500 mt-1">聚烯烴泡棉領導</p>
-                    </div>
-                    <div class="text-center p-4 bg-teal-50 rounded-xl">
-                        <div class="text-3xl font-bold text-teal-600 mb-2">Rogers</div>
-                        <p class="text-sm text-gray-600">美國工程材料</p>
-                        <p class="text-xs text-gray-500 mt-1">高性能泡棉</p>
-                    </div>
-                    <div class="text-center p-4 bg-pink-50 rounded-xl">
-                        <div class="text-3xl font-bold text-pink-600 mb-2">Sealed Air</div>
-                        <p class="text-sm text-gray-600">包裝解決方案</p>
-                        <p class="text-xs text-gray-500 mt-1">氣泡布發明者</p>
-                    </div>
-                </div>
-                
-                <div class="mt-8 pt-8 border-t border-gray-200">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4">競爭策略重點</h4>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-lightbulb text-yellow-500 text-xl"></i>
-                            <span class="font-medium">強大研發投入</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-leaf text-green-500 text-xl"></i>
-                            <span class="font-medium">環保合規領先</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-dollar-sign text-blue-500 text-xl"></i>
-                            <span class="font-medium">成本效益優化</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Strategic Recommendations -->
-        <section class="mb-20 fade-in">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-4xl font-bold text-gray-800 mb-4">策略建議</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    為產業領導者提供多維度策略指導，在激烈競爭中脫穎而出
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-blue-500">
-                    <div class="icon-circle mb-4" style="background: var(--primary-blue); width: 50px; height: 50px; font-size: 1.2rem;">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-3">持續創新</h3>
-                    <p class="text-gray-600 text-sm">投資研發，開發新材料與新應用，保持技術領先優勢</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-green-500">
-                    <div class="icon-circle mb-4" style="background: var(--accent-orange); width: 50px; height: 50px; font-size: 1.2rem;">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-3">流程優化</h3>
-                    <p class="text-gray-600 text-sm">整合數位技術，提升生產效率與產品精密度</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-purple-500">
-                    <div class="icon-circle mb-4" style="background: var(--primary-blue-light); width: 50px; height: 50px; font-size: 1.2rem;">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-3">戰略合作</h3>
-                    <p class="text-gray-600 text-sm">建立聯盟關係，進入新市場與獲取新技術</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-green-500">
-                    <div class="icon-circle mb-4" style="background: #10b981; width: 50px; height: 50px; font-size: 1.2rem;">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-3">擁抱可持續性</h3>
-                    <p class="text-gray-600 text-sm">採納綠色製造，符合法規並滿足市場需求</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-orange-500">
-                    <div class="icon-circle mb-4" style="background: var(--accent-orange); width: 50px; height: 50px; font-size: 1.2rem;">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-3">客戶導向</h3>
-                    <p class="text-gray-600 text-sm">針對特定行業需求量身打造產品解決方案</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-indigo-500">
-                    <div class="icon-circle mb-4" style="background: #6366f1; width: 50px; height: 50px; font-size: 1.2rem;">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-3">保持敏銳</h3>
-                    <p class="text-gray-600 text-sm">利用市場情報快速適應變化，把握機會</p>
-                </div>
-            </div>
-        </section>
+        </div>
 
         <!-- Future Trends -->
-        <section class="mb-20 fade-in">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-4xl font-bold text-gray-800 mb-4">未來發展趨勢</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    技術創新與環保發展將重新定義聚合物泡棉產業的未來
-                </p>
-            </div>
-            
-            <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8">
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">技術創新方向</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">奈米細胞聚合物泡棉</h4>
-                                    <p class="text-gray-600 text-sm">突破性材料技術，提供卓越性能</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">多功能整合泡棉</h4>
-                                    <p class="text-gray-600 text-sm">結合隔熱、吸音、衝擊保護於一體</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">精益生產方法</h4>
-                                    <p class="text-gray-600 text-sm">自動化切割，減少浪費，提升效率</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">環保發展重點</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">回收材料應用</h4>
-                                    <p class="text-gray-600 text-sm">廣泛採用回收材料，推動循環經濟</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">可持續製造實踐</h4>
-                                    <p class="text-gray-600 text-sm">綠色生產流程，符合環保標準</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">生物可降解材料</h4>
-                                    <p class="text-gray-600 text-sm">開發環保替代方案，減少環境影響</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12 pt-8 border-t border-gray-200">
-                    <div class="text-center">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">市場機會展望</h4>
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="bg-white rounded-lg p-4">
-                                <i class="fas fa-plane text-blue-500 text-2xl mb-2"></i>
-                                <h5 class="font-bold text-gray-800">航空應用</h5>
-                                <p class="text-sm text-gray-600">高度工程化泡棉組裝</p>
-                            </div>
-                            <div class="bg-white rounded-lg p-4">
-                                <i class="fas fa-heartbeat text-red-500 text-2xl mb-2"></i>
-                                <h5 class="font-bold text-gray-800">醫療領域</h5>
-                                <p class="text-sm text-gray-600">專業醫療級泡棉產品</p>
-                            </div>
-                            <div class="bg-white rounded-lg p-4">
-                                <i class="fas fa-globe text-green-500 text-2xl mb-2"></i>
-                                <h5 class="font-bold text-gray-800">國際市場</h5>
-                                <p class="text-sm text-gray-600">新興市場擴展機會</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="bento-item half-width trend-card text-white">
+            <h2 class="text-2xl font-bold mb-4"><i class="fas fa-rocket mr-3"></i>未來發展趨勢</h2>
+            <ul class="space-y-3 text-sm">
+                <li class="flex items-center"><i class="fas fa-leaf mr-2 text-green-300"></i>生物可降解材料發展</li>
+                <li class="flex items-center"><i class="fas fa-recycle mr-2 text-blue-300"></i>回收材料整合應用</li>
+                <li class="flex items-center"><i class="fas fa-robot mr-2 text-purple-300"></i>智能製造技術</li>
+                <li class="flex items-center"><i class="fas fa-chart-line mr-2 text-yellow-300"></i>數據驅動生產優化</li>
+                <li class="flex items-center"><i class="fas fa-shield-alt mr-2 text-red-300"></i>高性能特殊應用</li>
+            </ul>
+        </div>
 
-        <!-- Conclusion -->
-        <section class="mb-20 fade-in">
-            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl p-12 text-center">
-                <h2 class="font-serif text-4xl font-bold mb-6">結論與展望</h2>
-                <p class="text-xl mb-8 max-w-4xl mx-auto leading-relaxed">
-                    聚合物泡棉市場正處於由技術創新、可持續性要求和數位化進步共同推動的歷史性轉變中。
-                    能夠成功整合產業專業知識與前瞻性技術，並在卓越性能和環境責任之間取得平衡的企業，
-                    將引領市場的未來發展。
-                </p>
-                <div class="grid md:grid-cols-3 gap-8 mt-12">
-                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                        <div class="text-4xl font-bold text-yellow-300 mb-2">85%</div>
-                        <p class="text-lg font-medium">企業重視可持續性</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                        <div class="text-4xl font-bold text-yellow-300 mb-2">7+</div>
-                        <p class="text-lg font-medium">主要應用領域</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                        <div class="text-4xl font-bold text-yellow-300 mb-2">25+</div>
-                        <p class="text-lg font-medium">全球領先企業</p>
+        <!-- Key Companies Section -->
+        <div class="bento-item full-width">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-industry mr-3 text-red-600"></i>關鍵市場參與者</h2>
+            <p class="text-gray-600 mb-6">以下是塑造聚合物泡棉市場的主要公司，包含其官方網站連結：</p>
+            
+            <div class="grid md:grid-cols-3 gap-4">
+                <!-- Tier 1 Companies -->
+                <div class="company-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">國際化學巨頭</h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <strong><a href="https://www.basf.com" target="_blank" class="company-link">巴斯夫 SE (BASF SE)</a></strong>
+                            <p class="mt-1 opacity-90">全球領先的化學公司，在聚合物泡棉技術方面具有深厚專業知識</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.dupont.com" target="_blank" class="company-link">杜邦 (DuPont de Nemours, Inc.)</a></strong>
+                            <p class="mt-1 opacity-90">創新材料科學領導者，提供高性能聚合物解決方案</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.covestro.com" target="_blank" class="company-link">科沃斯 (Covestro AG)</a></strong>
+                            <p class="mt-1 opacity-90">聚合物材料專家，專注於可持續創新解決方案</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.arkema.com" target="_blank" class="company-link">阿克馬 (Arkema S.A.)</a></strong>
+                            <p class="mt-1 opacity-90">特種化學品和先進材料的全球領導者</p>
+                        </div>
                     </div>
                 </div>
-                <p class="text-lg mt-8 text-blue-100">
-                    <i class="fas fa-quote-left mr-2"></i>
-                    靈活性和積極應對變化的能力是在這個動態市場中成功的關鍵
-                    <i class="fas fa-quote-right ml-2"></i>
-                </p>
+
+                <!-- Tier 2 Companies -->
+                <div class="company-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">專業泡棉製造商</h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <strong><a href="https://www.armacell.com" target="_blank" class="company-link">阿馬克艾爾 (Armacell International S.A.)</a></strong>
+                            <p class="mt-1 opacity-90">全球領先的柔性泡棉絕緣材料製造商</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.recticel.com" target="_blank" class="company-link">雷克塞爾 (Recticel NV/SA)</a></strong>
+                            <p class="mt-1 opacity-90">歐洲領先的聚氨酯泡棉和絕緣材料專家</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.rogers.com" target="_blank" class="company-link">羅杰斯 (Rogers Corporation)</a></strong>
+                            <p class="mt-1 opacity-90">高性能材料解決方案的全球領導者</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.trelleborg.com" target="_blank" class="company-link">特雷勒堡 (Trelleborg AB)</a></strong>
+                            <p class="mt-1 opacity-90">工程聚合物解決方案的全球領導者</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tier 3 Companies -->
+                <div class="company-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">亞太區重要參與者</h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <strong><a href="https://www.jsp.com" target="_blank" class="company-link">JSP Corporation</a></strong>
+                            <p class="mt-1 opacity-90">日本領先的發泡塑料製造商，專精於創新泡棉技術</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.kaneka.co.jp" target="_blank" class="company-link">鈴木化工 (Kaneka Corporation)</a></strong>
+                            <p class="mt-1 opacity-90">日本多元化化學公司，在聚合物材料領域具有強大實力</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.mitsuichemicals.com" target="_blank" class="company-link">三井化學美國 (Mitsui Chemicals America, Inc.)</a></strong>
+                            <p class="mt-1 opacity-90">日本三井化學在美國的分公司，提供先進聚合物解決方案</p>
+                        </div>
+                        <div>
+                            <strong><a href="https://www.sekisuialveo.com" target="_blank" class="company-link">積水化工 Alveo (Sekisui Alveo AG)</a></strong>
+                            <p class="mt-1 opacity-90">專業聚烯烴泡棉製造商，服務全球市場</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+
+            <!-- Additional Companies Grid -->
+            <div class="mt-8 grid md:grid-cols-4 gap-4">
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-gray-800 mb-2">其他重要參與者</h4>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <div><a href="https://www.saint-gobain.com" target="_blank" class="text-blue-600 hover:text-blue-800">聖戈班 (Saint-Gobain S.A.)</a></div>
+                        <div><a href="https://www.sealedair.com" target="_blank" class="text-blue-600 hover:text-blue-800">密封空氣 (Sealed Air Corporation)</a></div>
+                        <div><a href="https://www.evonik.com" target="_blank" class="text-blue-600 hover:text-blue-800">伊夫尼克 (Evonik Industries AG)</a></div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-gray-800 mb-2">專業製造商</h4>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <div><a href="https://www.generalplastics.com" target="_blank" class="text-blue-600 hover:text-blue-800">通用塑膠 (General Plastics)</a></div>
+                        <div><a href="https://www.ufpt.com" target="_blank" class="text-blue-600 hover:text-blue-800">UFP Technologies, Inc.</a></div>
+                        <div>Aadi Polymers</div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-gray-800 mb-2">區域領導者</h4>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <div>American Excelsior Company</div>
+                        <div>CIRES SpA</div>
+                        <div>Boreal AG</div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-gray-800 mb-2">中東參與者</h4>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <div><a href="https://www.sabic.com" target="_blank" class="text-blue-600 hover:text-blue-800">沙烏地基礎工業 (SABIC)</a></div>
+                        <div>Heubach Corporation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic Recommendations -->
+        <div class="bento-item full-width">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-lightbulb mr-3 text-yellow-600"></i>策略建議與未來展望</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">對產業領導者的建議</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-2 text-green-500 mt-1"></i>投資研發以提升材料特性並探索新應用</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-2 text-green-500 mt-1"></i>整合數位技術於製造流程中提升效率</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-2 text-green-500 mt-1"></i>建立戰略聯盟以進入新技術與新興市場</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-2 text-green-500 mt-1"></i>關注區域性規範變遷並採納綠色製造實踐</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mr-2 text-green-500 mt-1"></i>量身打造產品以滿足特定產業需求</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">市場機會與挑戰</h3>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-800">機會</h4>
+                            <p class="text-sm text-green-700">可持續材料需求增長、新興市場擴張、技術創新應用</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                            <h4 class="font-bold text-red-800">挑戰</h4>
+                            <p class="text-sm text-red-700">原材料價格波動、環保法規趨嚴、技術更新成本</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-6xl mx-auto px-4">
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="https://s2.loli.net/2025/06/28/yVLiSKzXvjAa3nf.png" alt="James Logo" class="w-8 h-8" loading="lazy">
-                        <h3 class="text-xl font-bold">James Chang</h3>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        專業分析師，致力於提供深度市場洞察與策略建議，
-                        幫助企業在快速變化的商業環境中做出明智決策。
-                    </p>
+                    <h3 class="text-lg font-bold mb-4">關於本報告</h3>
+                    <p class="text-sm text-gray-300">本報告整合了全球聚合物泡棉市場的最新分析，涵蓋市場轉型、技術創新、區域動態及主要參與者策略。</p>
                 </div>
-                
                 <div>
-                    <h4 class="text-lg font-bold mb-4">聯絡資訊</h4>
-                    <div class="space-y-2 text-gray-300">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-envelope"></i>
-                            <span>2399919199@qq.com</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-globe"></i>
-                            <span>發現·創新·實踐·共贏</span>
-                        </div>
-                    </div>
+                    <h3 class="text-lg font-bold mb-4">數據來源</h3>
+                    <p class="text-sm text-gray-300">基於產業研究、市場分析及主要製造商公開資訊整理而成。</p>
                 </div>
-                
                 <div>
-                    <h4 class="text-lg font-bold mb-4">授權資訊</h4>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        本報告採用 MIT 授權，您可以自由使用、修改和分發本報告，
-                        前提是保留原作者資訊。
-                    </p>
+                    <h3 class="text-lg font-bold mb-4">聯絡資訊</h3>
+                    <p class="text-sm text-gray-300">如需更多資訊或客製化分析，請聯繫我們的研究團隊。</p>
                 </div>
             </div>
-            
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-400 text-sm">
-                    © 2025 By James Chang | 發現·創新·實踐·共贏
-                </p>
+                <p class="text-sm text-gray-400">&copy; 2024 聚合物泡棉市場分析報告. 版權所有.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Print Button -->
+    <button onclick="window.print()" class="print-btn bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110">
+        <i class="fas fa-print text-xl"></i>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="fixed bottom-20 right-2 bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        // Fade in animation on scroll
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.remove('opacity-0', 'invisible');
+            } else {
+                scrollTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
-        const observer = new IntersectionObserver((entries) => {
+
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+
+        // Observe all bento items
+        document.querySelectorAll('.bento-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
         });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Progress bar animation
-        const animateProgressBars = () => {
-            const progressBars = document.querySelectorAll('.progress-fill');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0%';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-        };
-        
-        // Trigger progress bar animation when visible
-        const progressObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateProgressBars();
-                    progressObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        document.querySelectorAll('.progress-bar').forEach(el => {
-            progressObserver.observe(el.parentElement);
-        });
-        
-        // Print functionality
-        window.addEventListener('beforeprint', () => {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                el.classList.add('visible');
-            });
-        });
+
+        // Initialize first item immediately
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.hero').style.transform = 'translateY(0)';
     </script>
 </body>
 </html>
